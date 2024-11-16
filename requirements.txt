@@ -1,0 +1,7 @@
+numpy
+python-dateutil
+pandas
+PyQt5
+TextBlob
+matplotlib
+scipy
