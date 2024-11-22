@@ -4,7 +4,7 @@ from sentiment_bug import SentimentAnalysis
 from data_loader import DataLoader
 import pandas as pd
 
-class TestSentimentAnalysis(unittest.TestCase):
+class TestSentimentBugs(unittest.TestCase):
     
     @patch.object(DataLoader, 'load_data')
     def setUp(self, mock_load_data):
