@@ -1,0 +1,7 @@
+Name                  Stmts   Miss  Cover
+-----------------------------------------
+data_loader.py           47     32    32%
+model.py                 63     50    21%
+sentiment_trends.py      34      0   100%
+-----------------------------------------
+TOTAL                   144     82    43%
