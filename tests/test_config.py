@@ -26,17 +26,20 @@ class TestConfig(unittest.TestCase):
         config._init_config()
         self.assertEqual(config._config['test_param'], 'test_value')
 
+     # Verify that the configuration initializes as an empty dictionary when no configuration file exists.
     @patch('os.path.isfile')
     def test_init_config_without_file(self, mock_isfile):
         mock_isfile.return_value = False
         config._init_config()
         self.assertEqual(config._config, {})
 
+    # Ensure that `get_parameter` retrieves the correct value of an environment variable.
     def test_get_parameter_from_env(self):
         os.environ['TEST_PARAM'] = 'env_value'
         value = config.get_parameter('TEST_PARAM')
         self.assertEqual(value, 'env_value')
 
+    # Validate that `get_parameter` returns the provided default value if the requested parameter is not found.
     def test_get_parameter_json_from_env(self):
         os.environ['TEST_PARAM'] = 'json:{"key": "value"}'
         value = config.get_parameter('TEST_PARAM')
@@ -46,6 +49,7 @@ class TestConfig(unittest.TestCase):
         value = config.get_parameter('MISSING_PARAM', default='default_value')
         self.assertEqual(value, 'default_value')
 
+    # Test the conversion of various input strings into their appropriate Python data types.
     def test_convert_to_typed_value(self):
         test_cases = [
             ('{"key": "value"}', {"key": "value"}),
@@ -60,10 +64,12 @@ class TestConfig(unittest.TestCase):
             result = config.convert_to_typed_value(input_value)
             self.assertEqual(result, expected)
 
+    # Test that setting a string parameter updates the corresponding environment variable correctly.
     def test_set_parameter_string(self):
         config.set_parameter('TEST_PARAM', 'test_value')
         self.assertEqual(os.environ['TEST_PARAM'], 'test_value')
 
+    # Verify that setting a JSON parameter updates the environment variable with the correct `json:` prefix.
     def test_set_parameter_json(self):
         config.set_parameter('TEST_PARAM', {"key": "value"})
         self.assertEqual(os.environ['TEST_PARAM'], 'json:{"key": "value"}')
