@@ -65,15 +65,20 @@ python run.py --feature 3
 That will output basic information about the issues to the command line.
 
 ## Install dependencies
+```
 pip install coverage
+```
 ## Running unit test case
 To run the unit tests for this project:
+```
 python -m coverage run -m unittest discover -s tests
+```
 
 ## Generating Test Coverage Report
 After running the tests, you can generate a coverage report using the following command:
+```
 python -m coverage report --omit="test_*"
-
+```
 ## Note:
 While running the tests, if any graphical windows open (e.g., for plotting or visualizing results), make sure to close the graph after reviewing it. This allows the next test case to execute without interruptions.
 
