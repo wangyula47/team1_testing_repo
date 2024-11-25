@@ -64,6 +64,8 @@ python run.py --feature 3
 
 That will output basic information about the issues to the command line.
 
+## Install dependencies
+pip install coverage
 ## Running unit test case
 To run the unit tests for this project:
 python -m coverage run -m unittest discover -s tests
