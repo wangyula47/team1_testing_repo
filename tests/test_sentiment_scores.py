@@ -78,7 +78,7 @@ class TestSentimentScores(unittest.TestCase):
         ]
         mock_get_issues.return_value = mock_issues
         self.sentiment_scores = SentimentScores()
-
+    # Test if the sentiment maps are populated correctly.
     def test_populate_maps(self):
         self.sentiment_scores._populate_maps()
         sentiment_scores = self.sentiment_scores.get_sentiment_scores()
@@ -86,16 +86,19 @@ class TestSentimentScores(unittest.TestCase):
         self.assertIn(29923, sentiment_scores)
         self.assertIn(29924, sentiment_scores)
 
+    # Test retrieving the sentiment score for a specific issue.
     def test_get_sentiment_score(self):
         self.sentiment_scores._populate_maps()
         score = self.sentiment_scores.get_sentiment_score(29923)
         self.assertIsInstance(score, float)
 
+    # Test grouping issues by their labels.
     def test_get_issues_by_label(self):
         self.sentiment_scores._populate_maps()
         issues_by_label = self.sentiment_scores.get_issues_by_label()
         self.assertIn('bug', issues_by_label)
 
+    #Test linear regression on sentiment score trends.
     def test_get_liner_regression(self):
         days = [1, 2, 3, 4, 5]
         scores = [0.1, 0.2, 0.3, 0.4, 0.5]
@@ -104,6 +107,7 @@ class TestSentimentScores(unittest.TestCase):
         self.assertIsInstance(intercept, float)
         self.assertIsInstance(r_value, float)
 
+    # Test plotting sentiment scores for a specific issue.
     @patch('matplotlib.pyplot.show')
     def test_plot_sentiment_scores(self, mock_show):
         self.sentiment_scores._populate_maps()
@@ -116,7 +120,7 @@ class TestSentimentScores(unittest.TestCase):
         self.sentiment_scores.run()
         mock_show.assert_called_once()
 
-
+    # Test sentiment score retrieval for valid and invalid issue numbers.
     def test_error_handling(self):
         # Test with valid issue number from setUp
         score = self.sentiment_scores.get_sentiment_score(29923)
@@ -140,6 +144,7 @@ class TestSentimentScores(unittest.TestCase):
         score = self.sentiment_scores.get_sentiment_score(99999)  # Non-existent issue
         self.assertEqual(score, 0)
 
+    # Test linear regression function with valid data.
     def test_linear_regression(self):
         days = [1, 2, 3]
         scores = [0.1, 0.2, 0.3]
