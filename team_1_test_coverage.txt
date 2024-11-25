@@ -1,0 +1,12 @@
+PS E:\Fall2024\611\project_testing\team1_testing_repo> python -m coverage report --omit="test_*"
+Name                  Stmts   Miss  Cover
+-----------------------------------------
+config.py                68      6    91%
+data_loader.py           47      3    94%
+example_analysis.py      28      1    96%
+model.py                 63      4    94%
+sentiment_bug.py         79      2    97%
+sentiment_scores.py     106      7    93%
+sentiment_trends.py      33      0   100%
+-----------------------------------------
+TOTAL                   424     23    95%

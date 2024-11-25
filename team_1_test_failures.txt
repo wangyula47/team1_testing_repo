@@ -1,0 +1,46 @@
+PS E:\Fall2024\611\project_testing\team1_testing_repo> python -m coverage run -m unittest discover -s tests
+............Loaded 661 issues from ./data/poetry_issues.json.
+..E:\Fall2024\611\project_testing\team1_testing_repo\sentiment_bug.py:54: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  self.df['Week'] = self.df['CreatedDate'].dt.to_period('W')  # Year-Week period
+.E:\Fall2024\611\project_testing\team1_testing_repo\sentiment_bug.py:54: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  self.df['Week'] = self.df['CreatedDate'].dt.to_period('W')  # Year-Week period
+Statistics for bugs (grouped by week): 
+Min: 0.00
+Q1: 0.00
+Median: 0.00
+Mean: 0.00
+Q3: 0.00
+Max: 0.00
+
+Statistics for features (grouped by week): 
+Min: 0.00
+Q1: 0.00
+Median: 0.00
+Mean: 0.00
+Q3: 0.00
+Max: 0.00
+.E:\Fall2024\611\project_testing\team1_testing_repo\sentiment_bug.py:54: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  self.df['Week'] = self.df['CreatedDate'].dt.to_period('W')  # Year-Week period
+.E:\Fall2024\611\project_testing\team1_testing_repo\sentiment_bug.py:54: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  self.df['Week'] = self.df['CreatedDate'].dt.to_period('W')  # Year-Week period
+..E:\Fall2024\611\project_testing\team1_testing_repo\sentiment_bug.py:54: UserWarning: Converting to PeriodArray/Index representation will drop timezone information.
+  self.df['Week'] = self.df['CreatedDate'].dt.to_period('W')  # Year-Week period
+Statistics for bugs (grouped by week): 
+
+Statistics for features (grouped by week):
+......
+---------------------------
+WARNING:root:Unable to create linear regression line. Fewer than two data points.
+
+---------------------------
+Goodbye!
+.....
+---------------------------
+
+---------------------------
+Goodbye!
+....
+----------------------------------------------------------------------
+Ran 34 tests in 39.152s
+
+OK
